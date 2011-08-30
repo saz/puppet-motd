@@ -1,9 +1,10 @@
 
 <%= operatingsystem %> <%= operatingsystemrelease %> <%= architecture %>
 
-FQDN: <%= fqdn %>	IP: <%= ipaddress %>
+FQDN:      <%= fqdn %> (<%= ipaddress %>)
 <% if has_variable?("processor0") then -%>
 Processor: <%= processorcount %>x <%= processor0 %>
 <% end -%>
+Kernel:    <%= kernelrelease %>
 Memory:    <%= memorysize %>
 
