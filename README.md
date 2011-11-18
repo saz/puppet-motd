@@ -1,5 +1,9 @@
 # puppet-motd
-Manages 'Message Of The Day' with a template
+
+Manage 'Message Of The Day' via Puppet
 
 ## How to use
-```include motd```
+
+```
+    include motd
+```
