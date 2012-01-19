@@ -1,7 +1,11 @@
 class motd::params {
-    case $operatingsystem {
-        /(Ubuntu|Debian)/: {
-            $motd_file = '/etc/motd'
-        }
+  case $::operatingsystem {
+    ubuntu, debian: {
+      $config_file = '/etc/motd'
+      $template = 'locales/motd.erb'
     }
+    default: {
+      fail("Unsupported platform: ${::operatingsystem}")
+    }
+  }
 }
