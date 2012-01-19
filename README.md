@@ -2,8 +2,13 @@
 
 Manage 'Message Of The Day' via Puppet
 
-## How to use
+## Usage
 
 ```
-    include motd
+    class { 'motd': }
 ```
+
+## Other class parameters
+* ensure: present or absent, default: present.
+* config_file: string, default: OS specific. Set config_file, if platform is not supported.
+* template: string, default: OS specific. Set template, if platform is not supported.
