@@ -33,8 +33,14 @@ class motd(
   $template = $motd::params::template
 ) inherits motd::params {
 
+  if $ensure == 'present' {
+    $ensure_real = 'file'
+  } else {
+    $ensure_real = 'absent'
+  }
+
   file { $config_file:
-    ensure  => $ensure,
+    ensure  => $ensure_real,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
