@@ -1,6 +1,6 @@
 class motd::params {
-  case $::operatingsystem {
-    ubuntu, debian: {
+  case $::osfamily {
+    redhat, debian: {
       $config_file = '/etc/motd'
       $template = 'motd/motd.erb'
     }
