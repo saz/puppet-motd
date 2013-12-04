@@ -44,6 +44,9 @@ class motd(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template($template),
+    content => $inline_template ? {
+      '' => template($template),
+      default => inline_template("${inline_template}\n"),
+    }
   }
 }
