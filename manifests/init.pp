@@ -13,9 +13,14 @@
 #     Default: auto-set, platform specific
 #
 #   [*template*]
-#     Template to use.
+#     Template file to use.
 #     Only set this, if your platform is not supported or you know, what you're doing.
 #     Default: auto-set, platform specific
+#
+#   [*inline_template*]
+#     String with the template itself.
+#     It has preference over the *template* parameter, if defined.
+#     Default: not set.
 #
 # Actions:
 #   Manages 'Message Of The Day' content.
