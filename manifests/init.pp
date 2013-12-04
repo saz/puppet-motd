@@ -30,7 +30,8 @@
 class motd(
   $ensure = 'present',
   $config_file = $motd::params::config_file,
-  $template = $motd::params::template
+  $template = $motd::params::template,
+  $inline_template = '',
 ) inherits motd::params {
 
   if $ensure == 'present' {
@@ -44,6 +45,9 @@ class motd(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template($template),
+    content => $inline_template ? {
+      '' => template($template),
+      default => inline_template($inline_template),
+    }
   }
 }
