@@ -3,7 +3,7 @@
   "version": "2.2.1",
   "author": "saz",
   "summary": "Manage 'Message Of The Day' via Puppet",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "source": "https://github.com/saz/puppet-motd.git",
   "project_page": "https://github.com/saz/puppet-motd",
   "issues_url": "https://github.com/saz/puppet-motd/issues",
@@ -50,9 +50,6 @@
     }
   ],
   "description": "Manage 'Message Of The Day' via Puppet",
-  "types": [
-  
-  ],
   "dependencies": [
   
   ]
