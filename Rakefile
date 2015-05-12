@@ -4,5 +4,4 @@ require 'puppet-lint/tasks/puppet-lint'
 PuppetLint.configuration.fail_on_warnings
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "pkg/**/*.pp"]
-PuppetSyntax.future_parser = true
 
