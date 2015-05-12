@@ -15,7 +15,7 @@ describe 'motd', :type => :class do
           :ensure => 'file',
           :owner  => 'root',
           :group  => 'root',
-          :mode   => '0644',
+          :mode   => '0644'
         ) }
         describe '/etc/motd should have content from default template' do
           it { is_expected.to contain_file('/etc/motd').with_content(/^FQDN: *foo\.example\.com \(10.0.2.15\)$/) }
