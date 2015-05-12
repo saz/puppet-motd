@@ -39,6 +39,8 @@ class motd(
   $inline_template = ''
 ) inherits motd::params {
 
+  validate_absolute_path($config_file)
+
   if $ensure == 'present' {
     $ensure_real = 'file'
   } else {

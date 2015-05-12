@@ -8,36 +8,48 @@
   "project_page": "https://github.com/saz/puppet-motd",
   "issues_url": "https://github.com/saz/puppet-motd/issues",
   "operatingsystem_support": [
-    {
-      "operatingsystem": "RedHat"
-    },
-    {
-      "operatingsystem": "Amazon"
-    },
-    {
-      "operatingsystem": "CentOS"
-    },
-    {
-      "operatingsystem": "SuSe"
-    },
-    {
-      "operatingsystem": "SLES"
-    },
-    {
-      "operatingsystem": "OracleLinux"
-    },
-    {
-      "operatingsystem": "Scientific"
-    },
-    {
-      "operatingsystem": "Debian"
-    },
-    {
-      "operatingsystem": "Ubuntu"
-    },
-    {
-      "operatingsystem": "Gentoo"
-    }
+  {
+    "operatingsystem": "RedHat",
+    "operatingsystemrelease":[ "6", "7" ]
+  },
+  {
+    "operatingsystem": "Amazon"
+  },
+  {
+    "operatingsystem": "CentOS",
+    "operatingsystemrelease":[ "6", "7" ]
+  },
+  {
+    "operatingsystem": "OpenSuSE",
+    "operatingsystemrelease":[ "12", "13" ]
+  },
+  {
+    "operatingsystem": "SLES",
+    "operatingsystemrelease":[ "11" ]
+  },
+  {
+    "operatingsystem": "OracleLinux",
+    "operatingsystemrelease":[ "6", "7" ]
+  },
+  {
+    "operatingsystem": "Scientific",
+    "operatingsystemrelease":[ "6", "7" ]
+  },
+  {
+    "operatingsystem": "Debian",
+    "operatingsystemrelease":[ "6", "7", "8" ]
+  },
+  {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [
+      "14.04",
+      "12.04",
+      "10.04"
+    ]
+  },
+  {
+    "operatingsystem": "Gentoo"
+  }
   ],
   "requirements": [
     {
@@ -51,6 +63,6 @@
   ],
   "description": "Manage 'Message Of The Day' via Puppet",
   "dependencies": [
-  
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=2.4.0 <5.0.0" }
   ]
 }
