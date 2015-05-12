@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'puppetlabs_spec_helper', '0.10.1', :require => false
+  gem 'puppetlabs_spec_helper', '0.10.3', :require => false
   gem 'rspec-puppet', '2.0.1', :require => false
   gem 'puppet-lint-strict_indent-check', '2.0.1', :require => false
   gem 'metadata-json-lint', :require => false
