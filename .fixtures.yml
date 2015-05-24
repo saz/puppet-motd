@@ -1,0 +1,5 @@
+fixtures:
+  symlinks:
+    motd: "#{source_dir}"
+  forge_modules:
+    stdlib: "puppetlabs/stdlib"
