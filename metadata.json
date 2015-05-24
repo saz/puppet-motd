@@ -1,6 +1,6 @@
 {
   "name": "saz-motd",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": "saz",
   "summary": "Manage 'Message Of The Day' via Puppet",
   "license": "Apache-2.0",
