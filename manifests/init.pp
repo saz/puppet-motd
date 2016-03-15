@@ -54,9 +54,9 @@ class motd(
 
   file { $config_file:
     ensure  => $ensure_real,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
+    owner   => $motd::params::owner,
+    group   => $motd::params::group,
+    mode    => $motd::params::mode,
     content => $file_content,
   }
 }
