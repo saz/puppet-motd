@@ -6,7 +6,7 @@ class motd::params {
     }
     default: {
       case $::operatingsystem {
-        gentoo: {
+        gentoo, AIX: {
           $config_file = '/etc/motd'
           $template = 'motd/motd.erb'
         }
