@@ -1,4 +1,4 @@
-# puppet-motd
+# puppet-motd [![Build Status](https://secure.travis-ci.org/saz/puppet-motd.png)](https://travis-ci.org/saz/puppet-motd)
 
 Manage 'Message Of The Day' via Puppet
 
