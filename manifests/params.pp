@@ -7,7 +7,7 @@ class motd::params {
       $owner = 'root'
       $group = 'bin'
     }
-      redhat, debian, suse, gentoo : {
+    /RedHat|Debian|Suse|Gentoo/: {
       $config_file = '/etc/motd'
       $template = 'motd/motd.erb'
       $mode = '0644'
@@ -23,7 +23,7 @@ class motd::params {
           $owner = 'root'
           $group = 'bin'
         }
-        gentoo: {
+        'Gentoo': {
           $config_file = '/etc/motd'
           $template = 'motd/motd.erb'
           $mode = '0644'

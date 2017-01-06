@@ -1,36 +1,44 @@
----
 sudo: false
 language: ruby
-bundler_args: --without system_tests
-script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
+cache: bundler
+bundler_args: --without system_tests development
+before_install:
+- bundle -v
+- rm Gemfile.lock || true
+- gem update --system
+- gem update bundler
+- gem --version
+- bundle -v
+script:
+- bundle exec rake $CHECK
 matrix:
   fast_finish: true
   include:
-  - rvm: 1.8.7
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 1.7"
-  - rvm: 1.8.7
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 2.0"
-  - rvm: 1.8.7
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
   - rvm: 1.9.3
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 1.7"
+    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
   - rvm: 1.9.3
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 2.0"
-  - rvm: 1.9.3
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 1.7"
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 2.0"
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
-  - rvm: 2.1.5
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 1.7"
-  - rvm: 2.1.5
-    env: PUPPET_GEM_VERSION="~> 3.0" FACTER_GEM_VERSION="~> 2.0"
-  - rvm: 2.1.5
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
-  - rvm: 2.1.5
-    env: PUPPET_GEM_VERSION="~> 4.0"
+    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" FUTURE_PARSER="yes" CHECK=test
+  - rvm: 2.1
+    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.2
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=build
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=rubocop
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test FORGEDEPLOY=true
 notifications:
   email: false
+deploy:
+  provider: puppetforge
+  user: saz
+  password:
+    secure: GpPOAaStP2MRxGun62za9xfh1UCKMtIXPGp/ArwnLdcojAuzkDf+qdkphw/tSVXpnGuIASe27zX3TLAkeiYf+v7K9bZ4+RsV8r6JxsPwVx9s4ymDy7P+an/aH6f9nm05fiEi6qExhSHWjkvKB6pa2oI/0Sgl8Wjlj6xLHO1ytnQ=
+  on:
+    tags: true
+    all_branches: true
+    rvm: 2.3.1
+    condition: "$FORGEDEPLOY = true"

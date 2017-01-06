@@ -1,1 +1,1 @@
-include motd
+include ::motd
